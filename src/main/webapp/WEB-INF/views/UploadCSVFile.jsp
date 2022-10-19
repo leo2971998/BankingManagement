@@ -37,56 +37,27 @@
             </ul>
         </div>
     </nav>
-    <f:form class="bank-form" action="/addCustomer/create" modelAttribute="Customer">
-    <h1 class="bank-title">Customer:</h1>
-    <div class="texts">
-        <div class="divrow">
-            <div class="column" style="background-color:#a76d6d;">
-                <table>
-                    <tr>
-                        <th>First Name</th>
-                        <th><f:input path="firstName"/></th>
-                        <th><f:errors path="firstName"/></th>
-                    </tr>
-                    <tr>
-                        <th>Last Name</th>
-                        <th><f:input path="lastName"/></th>
-                        <th><f:errors path="lastName"/></th>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <th><f:input path="email"/></th>
-                        <th><f:errors path="email"/></th>
-                    <tr>
-                    <tr>
-                        <th>Date of Birth</th>
-                        <th><f:input path="Dob" type="date" id="datepicker"/></th>
-                        <th><f:errors path="Dob"/></th>
-                    </tr>
-                    <tr>
-                        <th>Phone Number</th>
-                        <th><f:input path="phoneNumber"/></th>
-                        <th><f:errors path="phoneNumber"/></th>
-                    </tr>
-                    <td>
-                        <button type="submit" class="btn btn-success">Add Customer</button>
-                    </td>
-                    <td>
-                        <button type = "button" class = "btn btn-primary" onclick="window.location.href='/uploadcsv'">Upload CSV</button>
-                    </td>
-                    <td>
-                        <button type="reset" class="btn btn-danger" value="Reset">Reset</button>
-                    </td>
-
-                    </tr>
-                    <a:out value="${msg}"></a:out>
-                </table>
-                </f:form>
+    <form class="bank-form" method="post" enctype="multipart/form-data" action="uploadtoDatabase">
+        <h1 class="bank-title">CSV Upload:</h1>
+        <div class="texts">
+            <div class="divrow">
+                <div class="column" style="background-color:#a76d6d;">
+                    <table>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" id="fileUpload" name="fileUpload"/>
+                            </td>
+                            <td>
+                                <input type="submit" value="Upload To Database"/>
+                            </td>
+                        </tr>
+                        <a:out value="${msg}"></a:out>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
-
+    </form>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
@@ -98,11 +69,6 @@
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-            location.href = "/uploadcsv";
-        };
-    </script>
 </section>
 </body>
 </html>

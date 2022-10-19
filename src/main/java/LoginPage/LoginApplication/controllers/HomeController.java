@@ -1,6 +1,7 @@
 package LoginPage.LoginApplication.controllers;
 
 import LoginPage.LoginApplication.model.dao.CustomerDao;
+import LoginPage.LoginApplication.model.dao.CustomerRepository;
 import LoginPage.LoginApplication.model.dao.LoginDao;
 import LoginPage.LoginApplication.model.pojo.Customer;
 import LoginPage.LoginApplication.model.pojo.Login;
@@ -11,9 +12,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.PreUpdate;
 import javax.validation.Valid;
+import java.io.*;
 import java.text.Bidi;
 import java.util.List;
 
@@ -107,5 +110,26 @@ public class HomeController {
         customerList = customerDao.loadCustomers();
         M.addAttribute("cList", customerList);
         return "ViewCustomer";
+    }
+    @RequestMapping("/uploadtoDatabase")
+    public String uploadCSV(@RequestParam(value = "fileUpload", required = true) MultipartFile file, Model M) throws IOException {
+
+        InputStream inputStream = file.getInputStream();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+        String line = "";
+        String msg = "Wrong File Input";
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] customer = line.split(",");
+            Customer temp = new Customer(customer[0], customer[1], customer[2], customer[4], customer[3]);
+            customerDao.AddCustomer(temp);
+            msg = "Database Updated";
+        }
+        M.addAttribute("msg", msg);
+        return "UploadCSVFile";
+
+    }
+    @RequestMapping("/uploadcsv")
+    public String upload() {
+        return "UploadCSVFile";
     }
 }

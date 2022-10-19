@@ -28,4 +28,11 @@ public class Customer {
     @NotBlank(message = "Required")
     private String Dob;
 
+    public Customer(String firstName, String lastName, String email, String phoneNumber, String dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        Dob = dob;
+    }
 }

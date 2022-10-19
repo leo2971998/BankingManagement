@@ -46,6 +46,7 @@
               <th>Customer ID</th>
               <th>
                 <f:select path="customerID" name = "customerID">
+                  <f:option value="" disabled="true" selected="true">Select</f:option>
                   <a:forEach var = "a" items = "${cList}">
                     <f:option value="${a.customerID}">${a.customerID}</f:option>
                   </a:forEach>

@@ -19,11 +19,6 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-    </script>
 </head>
 <body>
 <body>
@@ -73,8 +68,8 @@
                         </div>
                         <div class="form-group">
                             <label for="datepicker" class="text-info">Date of Birth:</label><br>
-                            <f:input path="dob" id="datepicker" cssClass="col-md-6" name="datepicker"
-                                     class="form-control" type="text"/>
+                            <f:input path="dob" id="datepicker" cssClass="col-md-6"
+                                     class="form-control" type="date"/>
                             <f:errors path="dob" cssClass="col-md-5"/>
                         </div>
                         <div class="form-group">

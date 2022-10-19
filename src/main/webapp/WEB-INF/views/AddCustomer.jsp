@@ -59,7 +59,7 @@
                         <tr>
                         <tr>
                             <th>Date of Birth</th>
-                            <th><f:input path="Dob" type="text" id="datepicker" name="datepicker"/></th>
+                            <th><f:input path="Dob" type="date" id="datepicker"/></th>
                             <th><f:errors path="Dob"/></th>
                         </tr>
                         <tr>
@@ -86,11 +86,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker").datepicker({dateFormat: 'dd/mm/yy'});
-        });
-    </script>
 </section>
 </body>
 </html>
